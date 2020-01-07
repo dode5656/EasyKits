@@ -1,0 +1,15 @@
+kits:
+  example:
+    items:
+      '1':
+        material: DIRT
+        name: '&4Example Item'
+        lore:
+          - '&eThis is an example lore'
+          - '&aFor an example kit'
+          - '&6You can customise everything'
+        amount: 1
+        damage: 0
+        enchants:
+          - DURABILITY:3
+          - DAMAGE_ALL:5

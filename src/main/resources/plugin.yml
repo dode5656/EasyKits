@@ -1,0 +1,32 @@
+main: io.github.dode5656.easykits.EasyKits
+version: 1.0.0
+name: EasyKits
+description: A easy to use Kits plugin.
+author: dode5656
+commands:
+  kits:
+    usage: /<command>
+    permission: easykits.use
+  kit:
+    usage: /<command> <kit>
+    permission: easykits.kit
+permissions:
+  easykits.kit:
+    description: Access to claim a kit.
+    default: op
+  easykits.use:
+    description: Access to kits gui.
+    default: op
+  easykits.help:
+    description: Access to kits help.
+    default: op
+  easykits.admin:
+    description: Access to admin commands.
+    default: op
+  easykits.reload:
+    description: Access to reload config.
+    default: op
+  easykits.edit:
+    description: Access to edit kits.
+    default: op
+
