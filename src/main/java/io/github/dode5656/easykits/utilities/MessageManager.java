@@ -14,7 +14,7 @@ public class MessageManager {
     public MessageManager(EasyKits plugin) {
         this.plugin = plugin;
         messages = plugin.getMessages().read();
-        prefix = messages.getString(Message.PREFIX.getMessage()) + " ";
+        prefix = plugin.getConfig().getString(Message.PREFIX.getMessage()) + " ";
     }
 
     public final String color(String message) { return ChatColor.translateAlternateColorCodes('&', message); }
