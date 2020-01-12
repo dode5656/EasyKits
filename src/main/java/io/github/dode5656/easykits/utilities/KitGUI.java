@@ -73,10 +73,9 @@ public class KitGUI implements InventoryHolder, Listener {
         Inventory inv = e.getInventory();
         if (inv.getHolder() != this) return;
         int counter = 1;
-
+        // TODO: KIT EDITOR DOESNT WORK!!! FIX IMMEDIATELY!!!
         ItemStack[] items = inv.getContents();
         for (ItemStack item : items) {
-            //TODO: complete
             ItemMeta meta = item.getItemMeta();
             List<String> enchants = new ArrayList<>();
             meta.getEnchants().forEach(((enchantment, integer) -> enchants.add(enchantment.getName() + ":" + integer)));

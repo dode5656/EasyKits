@@ -73,7 +73,7 @@ public class KitsGUI implements InventoryHolder, Listener {
                 e.getWhoClicked().closeInventory();
                 kitGUI.open((Player) e.getWhoClicked());
             } else {
-                plugin.getServer().dispatchCommand(e.getWhoClicked(), "/kit " + e.getCurrentItem().getItemMeta().getDisplayName());
+                plugin.getServer().dispatchCommand(e.getWhoClicked(), "kit " + e.getCurrentItem().getItemMeta().getDisplayName());
             }
         }
     }
