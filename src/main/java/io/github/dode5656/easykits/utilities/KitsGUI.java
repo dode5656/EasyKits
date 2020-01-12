@@ -3,7 +3,6 @@ package io.github.dode5656.easykits.utilities;
 import io.github.dode5656.easykits.EasyKits;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,6 +13,7 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Set;
 
 public class KitsGUI implements InventoryHolder, Listener {
@@ -38,6 +38,11 @@ public class KitsGUI implements InventoryHolder, Listener {
                 meta.setDisplayName(kit.getName());
                 if (player.hasPermission("easykits.edit")) {
                     meta.setLore(Arrays.asList(messageManager.color("&eRight Click to edit"), messageManager.color("&eLeft Click to claim")));
+                }
+
+                if (!player.hasPermission("easykits.kit." + kit.getName())) {
+                    item.setDurability((short) 14);
+                    meta.setLore(Collections.singletonList(messageManager.color("&cYou don't have access to this kit!")));
                 }
                 item.setItemMeta(meta);
                 inv.setItem(i, item);

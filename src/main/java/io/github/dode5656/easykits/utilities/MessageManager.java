@@ -3,15 +3,18 @@ package io.github.dode5656.easykits.utilities;
 import io.github.dode5656.easykits.EasyKits;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 
 public class MessageManager {
     Plugin plugin;
     public String prefix;
+    private FileConfiguration messages;
 
     public MessageManager(EasyKits plugin) {
         this.plugin = plugin;
-        prefix = this.plugin.getConfig().getString(Message.PREFIX.getMessage()) + " ";
+        messages = plugin.getMessages().read();
+        prefix = messages.getString(Message.PREFIX.getMessage()) + " ";
     }
 
     public final String color(String message) { return ChatColor.translateAlternateColorCodes('&', message); }
@@ -25,8 +28,7 @@ public class MessageManager {
     }
 
     public final String format(Message msg) {
-        System.out.println(this.plugin.getConfig().getString(msg.getMessage()));
-        return prefix + color(this.plugin != null ? this.plugin.getConfig().getString(msg.getMessage()) : "");
+        return prefix + color(this.plugin != null ? this.messages.getString(msg.getMessage()) : "");
     }
 
 }

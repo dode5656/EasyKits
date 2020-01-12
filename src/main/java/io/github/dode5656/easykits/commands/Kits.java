@@ -2,6 +2,7 @@ package io.github.dode5656.easykits.commands;
 
 import io.github.dode5656.easykits.EasyKits;
 import io.github.dode5656.easykits.utilities.KitsGUI;
+import io.github.dode5656.easykits.utilities.Message;
 import io.github.dode5656.easykits.utilities.MessageManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -22,16 +23,16 @@ public class Kits implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
 
-            if (player.hasPermission("easykits.kits")) {
+            if (player.hasPermission("easykits.use")) {
 
                 KitsGUI gui = new KitsGUI(plugin, player);
                 gui.open(player);
 
             } else {
-                player.sendMessage(messageManager.format("You don't have permission to use that command."));
+                player.sendMessage(messageManager.format(Message.NOPERMCMD));
             }
         } else {
-            sender.sendMessage("This command is only for Players.");
+            sender.sendMessage(messageManager.format(Message.PLAYERONLY));
         }
         return true;
     }

@@ -1,0 +1,9 @@
+messages:
+  no-enough-space: "You dont have enough space in your inventory!"
+  player-only: "This command is only available to Players!"
+  kit-others-no-permission: "Sorry, you dont have permission to give this kit to others."
+  kit-invalid: "{kit} is an invalid kit." # Placeholders: {kit}
+  player-offline: "{player} is offline." # Placeholders: {player}
+  no-perm-cmd: "Sorry, you dont have permission to run this command!"
+  no-perm-kit: "Sorry, you dont have permission to claim this kit" # Placeholders: {kit}
+  kit-saved-successfully: "{kit} Kit saved successfully!" # Placeholders: {kit}

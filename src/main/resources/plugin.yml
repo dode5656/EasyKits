@@ -9,10 +9,16 @@ commands:
     permission: easykits.use
   kit:
     usage: /<command> <kit>
-    permission: easykits.kit
+    permission: easykits.kit.*
 permissions:
-  easykits.kit:
+  easykits.kit.*:
     description: Access to claim a kit.
+    default: op
+  easykits.kit:
+    description: Acess to claim a kit.
+    default: op
+  easykits.kit.others:
+    description: Access to give a kit to others
     default: op
   easykits.use:
     description: Access to kits gui.

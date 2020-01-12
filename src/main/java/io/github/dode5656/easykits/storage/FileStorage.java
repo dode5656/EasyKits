@@ -13,14 +13,6 @@ public class FileStorage {
     private YamlConfiguration fileStorage;
 
     public FileStorage(String name, File location) {
-//        File temp = new File(location, name);
-//        if (!temp.exists()) {
-//            try {
-//                temp.createNewFile();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
         this.file = new File(location, name);
     }
 
