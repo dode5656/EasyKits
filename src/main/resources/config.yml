@@ -1,5 +1,3 @@
 gui:
   title: 'Kits'
 prefix: '[EasyKits]'
-messages:
-  error: '&cAn error occurred, contact an administrator+ about it!'
