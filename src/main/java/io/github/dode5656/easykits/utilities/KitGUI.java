@@ -89,10 +89,6 @@ public class KitGUI implements InventoryHolder, Listener {
 
                 kits.set(kitItems + counter + "lore", meta.getLore());
 
-            } else if (item.getAmount() != 1) {
-
-                kits.set(kitItems + counter + "amount", item.getAmount());
-
             } else if (meta.hasEnchants()) {
 
                 kits.set(kitItems + counter + "enchants", enchants);
@@ -100,6 +96,7 @@ public class KitGUI implements InventoryHolder, Listener {
             }
             kits.set(kitItems + counter + "damage", item.getDurability());
             kits.set(kitItems + counter + "material", item.getType().toString());
+            kits.set(kitItems + counter + "amount", item.getAmount());
             counter++;
         }
         try {
