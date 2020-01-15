@@ -27,6 +27,7 @@ public class KitGUI implements InventoryHolder, Listener {
 
     public KitGUI(EasyKits plugin, String kit) {
         this.messageManager = new MessageManager(plugin);
+        plugin.getServer().getPluginManager().registerEvents(this, plugin);
         this.plugin = plugin;
         this.name = kit;
         this.kits = plugin.getKits().read();
@@ -79,11 +80,11 @@ public class KitGUI implements InventoryHolder, Listener {
             List<String> enchants = new ArrayList<>();
             meta.getEnchants().forEach(((enchantment, integer) -> enchants.add(enchantment.getName() + ":" + integer)));
             String kitItems = "kits." + name + ".items."; 
-            if (!meta.getDisplayName().isEmpty()) {
+            if (meta.hasDisplayName()) {
 
                 kits.set(kitItems + counter + "name", meta.getDisplayName());
 
-            } else if (!meta.getLore().isEmpty()) {
+            } else if (meta.hasLore()) {
 
                 kits.set(kitItems + counter + "lore", meta.getLore());
 
@@ -91,7 +92,7 @@ public class KitGUI implements InventoryHolder, Listener {
 
                 kits.set(kitItems + counter + "amount", item.getAmount());
 
-            } else if (!enchants.isEmpty()) {
+            } else if (meta.hasEnchants()) {
 
                 kits.set(kitItems + counter + "enchants", enchants);
                 
@@ -100,7 +101,6 @@ public class KitGUI implements InventoryHolder, Listener {
             kits.set(kitItems + counter + "material", item.getType().toString());
             counter++;
         }
-
         try {
             plugin.getKits().reload();
             e.getPlayer().sendMessage(messageManager.format(Message.KITSAVEDSUCCESSFULLY).replace("{kit}", name));

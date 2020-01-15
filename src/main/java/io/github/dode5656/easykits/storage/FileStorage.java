@@ -35,7 +35,10 @@ public class FileStorage {
     }
 
     public void saveDefaults(EasyKits main) {
-        if (this.file.exists()) return;
+        if (this.file.exists()) {
+            reload();
+            return;
+        }
         main.saveResource(this.file.getName(), false);
         reload();
     }

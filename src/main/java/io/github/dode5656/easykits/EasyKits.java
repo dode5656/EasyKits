@@ -3,7 +3,6 @@ package io.github.dode5656.easykits;
 import io.github.dode5656.easykits.commands.Kit;
 import io.github.dode5656.easykits.commands.Kits;
 import io.github.dode5656.easykits.storage.FileStorage;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
