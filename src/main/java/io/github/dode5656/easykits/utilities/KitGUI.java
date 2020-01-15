@@ -73,38 +73,31 @@ public class KitGUI implements InventoryHolder, Listener {
         Inventory inv = e.getInventory();
         if (inv.getHolder() != this) return;
         int counter = 1;
-        // TODO: KIT EDITOR DOESNT WORK!!! FIX IMMEDIATELY!!!
         ItemStack[] items = inv.getContents();
         for (ItemStack item : items) {
             ItemMeta meta = item.getItemMeta();
             List<String> enchants = new ArrayList<>();
             meta.getEnchants().forEach(((enchantment, integer) -> enchants.add(enchantment.getName() + ":" + integer)));
             String kitItems = "kits." + name + ".items."; 
-            if (kits.get( + counter + "name") != null) {
+            if (!meta.getDisplayName().isEmpty()) {
 
                 kits.set(kitItems + counter + "name", meta.getDisplayName());
 
-            } else if (kits.get(kitItems + counter + "material") != null) {
-
-                kits.set(kitItems + counter + "material", item.getType().toString());
-
-            } else if (kits.get(kitItems + counter + "lore") != null) {
+            } else if (!meta.getLore().isEmpty()) {
 
                 kits.set(kitItems + counter + "lore", meta.getLore());
 
-            } else if (kits.get(kitItems + counter + "amount") != null) {
+            } else if (item.getAmount() != 1) {
 
                 kits.set(kitItems + counter + "amount", item.getAmount());
 
-            } else if (kits.get(kitItems + counter + "damage") != null) {
-
-                kits.set(kitItems + counter + "damage", item.getDurability());
-
-            } else if (kits.get(kitItems + counter + "enchants") != null) {
+            } else if (!enchants.isEmpty()) {
 
                 kits.set(kitItems + counter + "enchants", enchants);
                 
             }
+            kits.set(kitItems + counter + "damage", item.getDurability());
+            kits.set(kitItems + counter + "material", item.getType().toString());
             counter++;
         }
 
