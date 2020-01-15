@@ -100,6 +100,7 @@ public class KitGUI implements InventoryHolder, Listener {
             counter++;
         }
         try {
+            plugin.getKits().save(plugin);
             plugin.getKits().reload();
             e.getPlayer().sendMessage(messageManager.format(Message.KITSAVEDSUCCESSFULLY).replace("{kit}", name));
         } catch (Exception ex){
