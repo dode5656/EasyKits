@@ -28,7 +28,7 @@ public class MessageManager {
     }
 
     public final String format(Message msg) {
-        return prefix + color(this.plugin != null ? this.messages.getString(msg.getMessage()) : "");
+        return prefix + color(this.messages.getString(msg.getMessage()));
     }
 
 }
