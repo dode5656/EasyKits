@@ -76,7 +76,7 @@ public class KitGUI implements InventoryHolder, Listener {
         int counter = 1;
         ItemStack[] items = inv.getContents();
         for (ItemStack item : items) {
-            if (item.getType() == Material.AIR) continue;
+            if (item == null) continue;
             ItemMeta meta = item.getItemMeta();
             List<String> enchants = new ArrayList<>();
             meta.getEnchants().forEach(((enchantment, integer) -> enchants.add(enchantment.getName() + ":" + integer)));
