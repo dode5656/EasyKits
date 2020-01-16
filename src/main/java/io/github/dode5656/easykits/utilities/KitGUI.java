@@ -83,7 +83,7 @@ public class KitGUI implements InventoryHolder, Listener {
             String kitItems = "kits." + name + ".items."; 
             if (meta.hasDisplayName()) {
 
-                kits.set(kitItems + counter + ".name", meta.getDisplayName());
+                kits.set(kitItems + counter + ".name", meta.getDisplayName().replace('§', '&'));
 
             } else if (meta.hasLore()) {
 
@@ -94,9 +94,9 @@ public class KitGUI implements InventoryHolder, Listener {
                 kits.set(kitItems + counter + ".enchants", enchants);
                 
             }
-            kits.set(kitItems + counter + "damage", item.getDurability());
-            kits.set(kitItems + counter + "material", item.getType().toString());
-            kits.set(kitItems + counter + "amount", item.getAmount());
+            kits.set(kitItems + counter + ".damage", item.getDurability());
+            kits.set(kitItems + counter + ".material", item.getType().toString());
+            kits.set(kitItems + counter + ".amount", item.getAmount());
             counter++;
         }
         try {
