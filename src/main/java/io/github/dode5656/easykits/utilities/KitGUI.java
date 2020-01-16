@@ -83,15 +83,15 @@ public class KitGUI implements InventoryHolder, Listener {
             String kitItems = "kits." + name + ".items."; 
             if (meta.hasDisplayName()) {
 
-                kits.set(kitItems + counter + "name", meta.getDisplayName());
+                kits.set(kitItems + counter + ".name", meta.getDisplayName());
 
             } else if (meta.hasLore()) {
 
-                kits.set(kitItems + counter + "lore", meta.getLore());
+                kits.set(kitItems + counter + ".lore", meta.getLore());
 
             } else if (meta.hasEnchants()) {
 
-                kits.set(kitItems + counter + "enchants", enchants);
+                kits.set(kitItems + counter + ".enchants", enchants);
                 
             }
             kits.set(kitItems + counter + "damage", item.getDurability());
