@@ -95,13 +95,17 @@ public class Kit implements CommandExecutor {
                                     kits.getInt(itemConfig + item + ".amount"),
                                     (short) kits.getInt(itemConfig + item + ".damage"));
                             ItemMeta meta = itemStack.getItemMeta();
-                            meta.setDisplayName(messageManager.color(kits.getString(itemConfig + item + ".name")));
-                            if (!kits.getStringList(itemConfig + item + ".lore").isEmpty()) {
+                            if (kits.getString(itemConfig + item + ".name")!=null) {
+                                meta.setDisplayName(messageManager.color(kits.getString(itemConfig + item + ".name")));
+                                System.out.println("test");
+                                System.out.println();
+                            }
+                            if (!kits.getStringList(itemConfig + item + ".lore").isEmpty() && kits.getStringList(itemConfig+item+".lore") != null) {
                                 List<String> lores = kits.getStringList(itemConfig + item + ".lore");
                                 lores.replaceAll(messageManager::color);
                                 meta.setLore(lores);
                             }
-                            if (!kits.getStringList(itemConfig + item + ".enchants").isEmpty()) {
+                            if (!kits.getStringList(itemConfig + item + ".enchants").isEmpty() && kits.getStringList(itemConfig+item+".enchants") != null) {
                                 for (String s : kits.getStringList(itemConfig + item + ".enchants")) {
                                     String[] enchantMeta = s.split(":");
                                     meta.addEnchant(Enchantment.getByName(enchantMeta[0]),
