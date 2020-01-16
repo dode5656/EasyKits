@@ -10,7 +10,7 @@ public enum Message {
     PLAYEROFFLINE("messages.player-offline"),
     NOPERMCMD("messages.no-perm-cmd"),
     NOPERMKIT("messages.no-perm-kit"),
-    KITSAVEDSUCCESSFULLY("messages.kit-successfully-saved"),
+    KITSAVEDSUCCESSFULLY("messages.kit-saved-successfully"),
     ;
     private String key;
     Message(String s) {
