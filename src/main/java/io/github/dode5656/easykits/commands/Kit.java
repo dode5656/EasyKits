@@ -97,8 +97,6 @@ public class Kit implements CommandExecutor {
                             ItemMeta meta = itemStack.getItemMeta();
                             if (kits.getString(itemConfig + item + ".name")!=null) {
                                 meta.setDisplayName(messageManager.color(kits.getString(itemConfig + item + ".name")));
-                                System.out.println("test");
-                                System.out.println();
                             }
                             if (!kits.getStringList(itemConfig + item + ".lore").isEmpty() && kits.getStringList(itemConfig+item+".lore") != null) {
                                 List<String> lores = kits.getStringList(itemConfig + item + ".lore");
