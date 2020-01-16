@@ -10,8 +10,8 @@ import java.util.logging.Logger;
 
 public class EasyKits extends JavaPlugin {
     final Logger logger = getLogger();
-    FileStorage kits;
-    FileStorage messages;
+    private FileStorage kits;
+    private FileStorage messages;
 
     @Override
     public void onEnable() {

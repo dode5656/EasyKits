@@ -4,15 +4,12 @@ import io.github.dode5656.easykits.EasyKits;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.Plugin;
 
 public class MessageManager {
-    Plugin plugin;
     public String prefix;
     private FileConfiguration messages;
 
     public MessageManager(EasyKits plugin) {
-        this.plugin = plugin;
         messages = plugin.getMessages().read();
         prefix = plugin.getConfig().getString(Message.PREFIX.getMessage()) + " ";
     }
