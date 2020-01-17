@@ -14,9 +14,11 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
 
 public class KitGUI implements InventoryHolder, Listener {
     private Inventory inv;
@@ -106,7 +108,7 @@ public class KitGUI implements InventoryHolder, Listener {
             plugin.getKits().reload();
             e.getPlayer().sendMessage(messageManager.format(Message.KITSAVEDSUCCESSFULLY).replace("{kit}", name));
         } catch (Exception ex){
-            ex.printStackTrace();
+            plugin.getLogger().log(Level.SEVERE, "Couldn't save kit " + name + " successfully!", ex);
         }
 
     }

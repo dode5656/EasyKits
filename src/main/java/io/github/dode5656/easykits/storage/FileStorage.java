@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class FileStorage {
@@ -22,8 +23,7 @@ public class FileStorage {
         try {
             fileStorage.save(file);
         } catch (IOException e) {
-            logger.severe("Could not save " + file.getName() + " file!");
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Could not save " + file.getName() + " file!", e);
         }
     }
 
