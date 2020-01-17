@@ -9,7 +9,7 @@ import java.io.File;
 import java.util.logging.Logger;
 
 public class EasyKits extends JavaPlugin {
-    final Logger logger = getLogger();
+    private final Logger logger = getLogger();
     private FileStorage kits;
     private FileStorage messages;
 
