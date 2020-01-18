@@ -19,12 +19,16 @@ import java.util.Set;
 public class KitsGUI implements InventoryHolder, Listener {
     private Inventory inv;
     private EasyKits plugin;
+    private MessageManager messageManager;
 
     public KitsGUI(EasyKits plugin, Player player) {
+        this.messageManager = new MessageManager(plugin);
         this.plugin = plugin;
-        MessageManager messageManager = new MessageManager(plugin);
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
+        init(player);
+    }
 
+    void init(Player player) {
         ConfigurationSection kits = plugin.getKits().read().getConfigurationSection("kits");
         ConfigurationSection kit;
         Set<String> keys = plugin.getKits().read().getConfigurationSection("kits").getKeys(false);

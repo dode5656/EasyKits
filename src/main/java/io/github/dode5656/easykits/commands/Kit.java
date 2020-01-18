@@ -18,14 +18,16 @@ import java.util.Set;
 
 public class Kit implements CommandExecutor {
     private EasyKits plugin;
+    private MessageManager messageManager;
 
     public Kit(EasyKits plugin) {
         this.plugin = plugin;
+
+        this.messageManager = new MessageManager(plugin);
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        MessageManager messageManager = new MessageManager(plugin);
         if (sender.hasPermission("easykits.kit")) {
             if (args.length == 2) {
                 if (sender.hasPermission("easykits.kit." + args[0]) && sender.hasPermission("easykits.kit.others")) {

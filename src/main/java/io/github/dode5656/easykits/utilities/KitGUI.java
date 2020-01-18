@@ -14,7 +14,6 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -33,6 +32,10 @@ public class KitGUI implements InventoryHolder, Listener {
         this.plugin = plugin;
         this.name = kit;
         this.kits = plugin.getKits().read();
+        init(kit);
+    }
+
+    void init(String kit) {
         Set<String> items = kits.getConfigurationSection("kits." + kit + ".items").getKeys(false);
         inv = Bukkit.createInventory(this, 36, kit + " Kit Editor");
         String itemConfig = "kits." + kit + ".items.";
@@ -61,7 +64,6 @@ public class KitGUI implements InventoryHolder, Listener {
             inv.setItem(counter, itemStack);
             counter++;
         }
-
     }
 
     @Override

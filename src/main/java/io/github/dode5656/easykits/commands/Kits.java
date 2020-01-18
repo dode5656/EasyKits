@@ -11,14 +11,15 @@ import org.bukkit.entity.Player;
 
 public class Kits implements CommandExecutor {
     private EasyKits plugin;
+    private MessageManager messageManager;
 
     public Kits(EasyKits plugin) {
         this.plugin = plugin;
+        this.messageManager = new MessageManager(plugin);
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        MessageManager messageManager = new MessageManager(plugin);
 
         if (sender instanceof Player) {
             Player player = (Player) sender;
