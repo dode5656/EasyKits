@@ -22,12 +22,10 @@ import java.util.logging.Level;
 public class KitGUI implements InventoryHolder, Listener {
     private Inventory inv;
     private EasyKits plugin;
-    private MessageManager messageManager;
     private String name;
     private FileConfiguration kits;
 
     public KitGUI(EasyKits plugin, String kit) {
-        this.messageManager = plugin.getMessageManager();
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
         this.plugin = plugin;
         this.name = kit;
@@ -36,6 +34,7 @@ public class KitGUI implements InventoryHolder, Listener {
     }
 
     void init(String kit) {
+        MessageManager messageManager = plugin.getMessageManager();
         Set<String> items = kits.getConfigurationSection("kits." + kit + ".items").getKeys(false);
         inv = Bukkit.createInventory(this, 36, kit + " Kit Editor");
         String itemConfig = "kits." + kit + ".items.";
@@ -77,6 +76,7 @@ public class KitGUI implements InventoryHolder, Listener {
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent e) {
+        MessageManager messageManager = plugin.getMessageManager();
         Inventory inv = e.getInventory();
         if (inv.getHolder() != this) return;
         int counter = 1;

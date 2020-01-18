@@ -11,30 +11,28 @@ import org.bukkit.entity.Player;
 
 public class Kits implements CommandExecutor {
     private EasyKits plugin;
-    private MessageManager messageManager;
 
     public Kits(EasyKits plugin) {
         this.plugin = plugin;
-        this.messageManager = plugin.getMessageManager();
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        MessageManager messageManager = plugin.getMessageManager();
 
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
-
-            if (player.hasPermission("easykits.use")) {
-
-                KitsGUI gui = new KitsGUI(plugin, player);
-                gui.open(player);
-
-            } else {
-                player.sendMessage(messageManager.format(Message.NOPERMCMD));
-            }
-        } else {
+        if (!(sender instanceof Player)) {
             sender.sendMessage(messageManager.format(Message.PLAYERONLY));
+            return true;
         }
+        Player player = (Player) sender;
+
+        if (!player.hasPermission("easykits.use")) {
+            player.sendMessage(messageManager.format(Message.NOPERMCMD));
+        }
+
+        KitsGUI gui = new KitsGUI(plugin, player);
+        gui.open(player);
+
         return true;
     }
 
