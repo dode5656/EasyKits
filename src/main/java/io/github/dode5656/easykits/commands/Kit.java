@@ -29,10 +29,12 @@ public class Kit implements CommandExecutor {
         MessageManager messageManager = plugin.getMessageManager();
         if (!sender.hasPermission("easykits.kit")) {
             sender.sendMessage(messageManager.format(Message.NOPERMCMD));
+            return true;
         }
         if (args.length == 2) {
             if (!(sender.hasPermission("easykits.kit." + args[0]) && sender.hasPermission("easykits.kit.others"))) {
                 sender.sendMessage(messageManager.format(Message.KITOTHERSNOPERM));
+                return true;
             }
             if (!Bukkit.getPlayer(args[1]).isOnline()) {
                 sender.sendMessage(messageManager.format(Message.PLAYEROFFLINE).replace("{player}", args[1]));
@@ -42,6 +44,7 @@ public class Kit implements CommandExecutor {
             FileConfiguration kits = plugin.getKits().read();
             if (kits.get("kits." + args[0]) == null) {
                 sender.sendMessage(messageManager.format(Message.KITINVALID).replace("{kit}", args[0]));
+                return true;
             }
 
             Set<String> items = kits.getConfigurationSection("kits." + args[0] + ".items").getKeys(false);
