@@ -13,26 +13,18 @@ commands:
 permissions:
   easykits.kit.*:
     description: Access to claim a kit.
-    default: op
   easykits.kit:
     description: Acess to claim a kit.
-    default: op
   easykits.kit.others:
     description: Access to give a kit to others
-    default: op
   easykits.use:
     description: Access to kits gui.
-    default: op
   easykits.help:
     description: Access to kits help.
-    default: op
   easykits.admin:
     description: Access to admin commands.
-    default: op
   easykits.reload:
     description: Access to reload config.
-    default: op
   easykits.edit:
     description: Access to edit kits.
-    default: op
 
