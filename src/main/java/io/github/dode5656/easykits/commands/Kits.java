@@ -15,7 +15,7 @@ public class Kits implements CommandExecutor {
 
     public Kits(EasyKits plugin) {
         this.plugin = plugin;
-        this.messageManager = new MessageManager(plugin);
+        this.messageManager = plugin.getMessageManager();
     }
 
     @Override

@@ -22,7 +22,7 @@ public class KitsGUI implements InventoryHolder, Listener {
     private MessageManager messageManager;
 
     public KitsGUI(EasyKits plugin, Player player) {
-        this.messageManager = new MessageManager(plugin);
+        this.messageManager = plugin.getMessageManager();
         this.plugin = plugin;
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
         init(player);

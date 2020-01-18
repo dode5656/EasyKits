@@ -3,6 +3,7 @@ package io.github.dode5656.easykits;
 import io.github.dode5656.easykits.commands.Kit;
 import io.github.dode5656.easykits.commands.Kits;
 import io.github.dode5656.easykits.storage.FileStorage;
+import io.github.dode5656.easykits.utilities.MessageManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -12,6 +13,7 @@ public class EasyKits extends JavaPlugin {
     private final Logger logger = getLogger();
     private FileStorage kits;
     private FileStorage messages;
+    private MessageManager messageManager;
 
     @Override
     public void onEnable() {
@@ -25,6 +27,7 @@ public class EasyKits extends JavaPlugin {
         messages = new FileStorage("messages.yml", new File(getDataFolder().getPath()));
         messages.saveDefaults(this);
         kits.saveDefaults(this);
+        this.messageManager = new MessageManager(this);
     }
 
     @Override
@@ -38,4 +41,6 @@ public class EasyKits extends JavaPlugin {
         return kits;
     }
     public FileStorage getMessages() { return messages; }
+    public MessageManager getMessageManager() { return messageManager; }
+
 }

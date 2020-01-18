@@ -23,7 +23,7 @@ public class Kit implements CommandExecutor {
     public Kit(EasyKits plugin) {
         this.plugin = plugin;
 
-        this.messageManager = new MessageManager(plugin);
+        this.messageManager = plugin.getMessageManager();
     }
 
     @Override

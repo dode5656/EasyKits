@@ -27,7 +27,7 @@ public class KitGUI implements InventoryHolder, Listener {
     private FileConfiguration kits;
 
     public KitGUI(EasyKits plugin, String kit) {
-        this.messageManager = new MessageManager(plugin);
+        this.messageManager = plugin.getMessageManager();
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
         this.plugin = plugin;
         this.name = kit;
