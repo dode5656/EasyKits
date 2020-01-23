@@ -18,7 +18,7 @@ public class FileStorage {
         this.file = new File(location, name);
     }
 
-    public void save(EasyKits main) {
+    public final void save(EasyKits main) {
         Logger logger = main.getLogger();
         try {
             fileStorage.save(file);
@@ -27,15 +27,15 @@ public class FileStorage {
         }
     }
 
-    public FileConfiguration read() {
+    public final FileConfiguration read() {
         return fileStorage;
     }
 
-    public void reload() {
+    public final void reload() {
         this.fileStorage = YamlConfiguration.loadConfiguration(this.file);
     }
 
-    public void saveDefaults(EasyKits main) {
+    public final void saveDefaults(EasyKits main) {
         if (this.file.exists()) {
             reload();
             return;
